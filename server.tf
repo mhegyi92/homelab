@@ -23,6 +23,16 @@ resource "hcloud_firewall" "main" {
 
   rule {
     direction = "in"
+    protocol  = "tcp"
+    port      = "6443"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+  rule {
+    direction = "in"
     protocol  = "udp"
     port      = "41641"
     source_ips = [
